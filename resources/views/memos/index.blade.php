@@ -2,7 +2,7 @@
 
 @forelse ($memos as $memo)
     <h2>
-        <a href="/memos/{{ $memo->id }}">
+        <a href="{{ route('memos.show',$memo->id) }}">
             {{ $memo->title }}
     </h2>
     <p>{{ $memo->body }}</p>
@@ -11,4 +11,4 @@
     <p>まだメモはありません</p>
 @endforelse
 
-<a href="/memos/create">メモを追加する</a>
+<a href="{{ route('memos.create') }}">メモを追加する</a>

@@ -1,8 +1,16 @@
 <h1>メモを追加</h1>
 
-<form action="/memos" method="POST">
+<form action="{{ route('memos.store') }}" method="POST">
     @csrf
-    
+    @if ($errors->any())
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+            <ul>
+            @else
+    @endif
+
     <div>
         <label>タイトル</label>
         <input type="text" name="title">

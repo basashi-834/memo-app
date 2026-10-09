@@ -4,9 +4,12 @@
 
 <p>{{ $memo->body }}</p>
 
-<a href="/memos/{{ $memo->id }}/edit">編集する</a>
+<a href="{{ route('memos.edit', $memo->id) }}">編集する</a>
 
-<form action="/memos/{{ $memo->id }}" method="POST">
+<p>作成日時：{{ $memo->created_at->format('Y年m月d日 H:i') }}</p>
+<p>更新日時：{{ $memo->updated_at->format('Y年m月d日 H:i') }}</p>
+
+<form action="{{ route('memos.destroy', $memo->id) }}" method="POST">
     @csrf
     @method('DELETE')
 
